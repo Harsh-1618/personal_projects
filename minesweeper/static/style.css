@@ -23,4 +23,13 @@
 #gameContainer{
     font-family: "Permanent Marker", cursive;    
     text-align: center;
+    align-items: center;
 }
+
+.img{
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    cursor: pointer;
+  }

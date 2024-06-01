@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 GRID_SIZE = []
 MS = []
+PER_MINE = []
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -13,6 +14,8 @@ def index():
         nrow = int(request.form['nrow'])
         ncol = int(request.form['ncol'])
         per_mine = float(request.form['per_mine'])
+        PER_MINE.clear()
+        PER_MINE.append(per_mine)
         per_mine /= 100
 
         GRID_SIZE.clear()
@@ -45,18 +48,18 @@ def process_id():
     if ms.isOnBomb(x, y):
         ms.mask = np.where(ms.ans_board == -1, 1, ms.mask)
         gv = ms.displayBoard()
-        udata = {0: GRID_SIZE, 1: gv, 2: False, 3: True}
+        udata = {0: GRID_SIZE, 1: gv, 2: False, 3: True, 4:PER_MINE[0]}
         return jsonify({'status': 'success', 'data': udata})
 
     ms.updateMask(ms.ans_board, ms.mask, x, y)
 
     if ms.isWon():
         gv = ms.displayBoard()
-        udata = {0: GRID_SIZE, 1: gv, 2: True, 3: False}
+        udata = {0: GRID_SIZE, 1: gv, 2: True, 3: False, 4:PER_MINE[0]}
         return jsonify({'status': 'success', 'data': udata})
 
     gv = ms.displayBoard()
-    udata = {0: GRID_SIZE, 1: gv, 2: False, 3: False}
+    udata = {0: GRID_SIZE, 1: gv, 2: False, 3: False, 4:PER_MINE[0]}
     return jsonify({'status': 'success', 'data': udata})
 
 

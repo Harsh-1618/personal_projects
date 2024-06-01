@@ -8,7 +8,8 @@
 </head>
 <body>
     <div id="gameContainer">
-        <h1>☢️ Minesweeper ☢️</h1>
+        <h1 style="color:darkorchid">☢️ Minesweeper ☢️</h1>
+        <h3 style="color:darkslateblue">Beat the game with number of rows > 9, number of columns > 9 and percentage mines > 9 to unlock special reward!</h3>
         <form method="POST">
             <label for="nrow">Number of rows:</label>
             <input type="text" id="nrow" name="nrow" required><br>
@@ -32,6 +33,7 @@
                 </table>
             </div>
             <h3 id="statusText" style="display: none"></h3>
+            <img src="" alt="dot-compliance" height="700px" width="400px" id="image" class="img">
         {% endif %}
     </div>
 

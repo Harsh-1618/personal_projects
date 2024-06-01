@@ -28,17 +28,26 @@ function handleClick(id){
             }
 
             if (data.data[2]){
-                let h_3 = document.getElementById("statusText");
-                h_3.innerText = "Congratulations! You won the game.";
-                h_3.innerHTML = "Congratulations! You won the game.";
-                h_3.style.display = "block";
-                h_3.style.color = "green";
+                if ((data.data[4] > 2) && (size[0] > 9) && (size[1] > 9)){
+                    let h_3 = document.getElementById("statusText");
+                    h_3.innerText = "Congratulations! You won the game. As promised, here is your special reward 😊";
+                    h_3.style.display = "block";
+                    h_3.style.color = "green";
+                    let img = document.getElementById("image")
+                    img.src = "https://images.pexels.com/photos/12226270/pexels-photo-12226270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+                    img.style.display = "block";
+                }
+                else{
+                    let h_3 = document.getElementById("statusText");
+                    h_3.innerText = "Congratulations! You won the game.";
+                    h_3.style.display = "block";
+                    h_3.style.color = "green";
+                }
             }
 
             if (data.data[3]){
                 let h_3 = document.getElementById("statusText")
-                h_3.innerText = "You lost the game. Better luck next time!";
-                h_3.innerHTML = "You lost the game. Better luck next time!";
+                h_3.innerText = "You lost the game DUMBO. Don't worry, it happens with low IQ people 😌";
                 h_3.style.display = "block";
                 h_3.style.color = "red";
             }
